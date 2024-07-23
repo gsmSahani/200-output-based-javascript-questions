@@ -20,8 +20,8 @@
 
         // let a = []
         // let b = []
-        // console.warn(a == b) 
-        // console.warn(a === b) 
+        // console.warn(a == b)
+        // console.warn(a === b)
 
         // Explanation: actually when we compare the two array either data type or strict comparison it will output false
         //because both the a and b has different location memory so comaring the different memory location it will show the ooutput false
@@ -57,7 +57,7 @@
         // Explanation:
         // Here in the first console it will pring the simle 1,2,3,4,5,6 it will be converted in string from array because of spread operator
         // and the 2nd console. it will pring the age of the object `a`
-        // Output: 1,2,3,4,5,6 and 25 
+        // Output: 1,2,3,4,5,6 and 25
 
         // 5
         // console.warn(typeof NaN)
@@ -93,7 +93,7 @@
 
         // Explantaion
         // both the value a and b are pointing to the same reference when the value is coming ffrom call by reference it will it will hold the same value to the parent also and to child also
-        // and when the call by value is called the the parent value would be empty and the value get into the child 
+        // and when the call by value is called the the parent value would be empty and the value get into the child
         // Output:{x: 3, y: 2} {x: 3, y: 2}
 
 
@@ -103,12 +103,12 @@
         //         console.warn("Value is" + i)
         //     });
         // }
-        // Explanation: 
+        // Explanation:
         // because of the closure and setTimeOut function and the var is function scope and there will only one shared binding for the iterations
-        // by the setTimeOut function gets executed because by default the setTimeOut delays the function to run in this case there is nothing so it delays 0ms 
-        //  the for loop has already completed and the value of the variable is 10 
-        // to fix this we can use let insted of var  because let has block scope but can't use const though it is block scope because the nature of the const variable 
-        // const is used for constant variable whose value should not and cannot be reassigned in this case if we use const the the value is going to change each time 
+        // by the setTimeOut function gets executed because by default the setTimeOut delays the function to run in this case there is nothing so it delays 0ms
+        //  the for loop has already completed and the value of the variable is 10
+        // to fix this we can use let insted of var  because let has block scope but can't use const though it is block scope because the nature of the const variable
+        // const is used for constant variable whose value should not and cannot be reassigned in this case if we use const the the value is going to change each time
         // Output: 10 times
 
         // 10
@@ -127,7 +127,7 @@
         // 11
         // let data = 10 - - 10
         // console.warn(data)
-        // Explanation 
+        // Explanation
         // it's simple bodmas rule that we use in maths (- * -) = +
 
 
@@ -135,7 +135,7 @@
         // const set = new Set([1, 5, 2, 3, 4, 5])
         // console.warn(set)
         // Explanation:
-        // it will automatically remove the duplicate value from the array and create new array 
+        // it will automatically remove the duplicate value from the array and create new array
         // A set is js builtin object that is specially designed to hold the unique value
         // Output: Set(5){1,5,2,3,4}
 
@@ -162,7 +162,7 @@
         // const { name } = data;
         // console.warn(name)
         // Question how to get the name without using . operator
-        // it can be done with the help of data destructuring 
+        // it can be done with the help of data destructuring
         // Output Gautam
 
         // 15
@@ -182,10 +182,167 @@
         // Questions : How to merge these two object
         // We can achieve with the help of spread operator by assigning variable and spreading both the object into single variable inside {}
         // it can be achive by another method too example Object.assign() ,It performs a shallow copy of object properties, similar to the spread operator.
-        
+
         // Note:
         //Object.assign() is widely supported across all modern browsers and is suitable for most scenarios where you need to merge objects.
         // Object Spread is more concise and readable but is currently a Stage 4 proposal and may require transpilation for older environments.
+
+        // 16
+        // const user = {
+        //     firstName: "Gautam",
+        //     getName() {
+        //         const firstName = "Gautam Sahani";
+        //         return this.firstName
+        //     },
+        // }
+        // console.log(user.getName())
+        //Explanation: this is due to method invocation `this` keyword is set to the object that own method
+        // Output: Gautam
+
+
+
+        // --------------------------
+        //17
+        // const name = "gautam";
+        // console.log(name());
+
+        // it will show the error TypeError: name is not a function because we are calling name() function which is not defined
+
+
+        // 18
+        // const result = false || {} || null;
+        // console.log(result);
+        // OP-{}
+        // as we know when we use `OR ||` operator it is used to get the first truthy value and it evaluates from left to right
+        // in this case false is falsy value and it goes to {} value an it found the value is truthy then it print the {} empty object
+        // and return it immediately stops the execution after it gets the truthy value
+
+
+        // 19
+        // const result = null || false || '';
+        // console.warn(result);
+        // op-empty string ''
+        // as we know `|| OR` it is logical operator it evaluates from left to right it always check the first truthy values
+        // if it gets truthy value then it will print the first truthy value or else it will print the last value of the conditoins
+
+
+        // 20
+        // const result = [] || 0 || true;
+        // console.warn(result)
+        // op-[]
+        // it will print the first truthy value as it is getting the first value as a true where it evaluates the
+        // value from left to right
+
+        // 21
+        // console.log(Promise.resolve(5))
+        // op-Promise {<fulfilled>: 5}
+        // when we use promise reolved it return promise itself so it is fullfilled
+        // specify the reason?
+
+        // 22
+        // JSON.parse()
+        // OP-"undefined" is not valid JSON
+        // Question: What will this method do
+        // a. `Parse JSON to javascript Value`
+        // b: Parse javascript object to JSON
+        // c: Parse any javascript value to JSON
+        // d; Parse JSON to object only
+
+
+
+        // 23
+        // let name = "Gautam"
+        // function getName() {
+        //     console.log(name)
+        //     let name = 'Shambhu'
+        // }
+        // getName()
+        // output:-ReferenceError: cannot access "name" before initialization
+        // because of the hoisting the let and const is block scoped and var is function scoped
+        // variable declared with the let and const is hoisted but not initialized with default value that's y it is showing the erro
+        // the error we are getting is because of TDZ temporal dead zone
+
+
+
+        // 24
+        // let name = "Gautam"
+        // function getName() {
+        //     console.log(name)
+        //     var name = 'Shambhu'
+        // }
+        // getName()
+        // op:- undefined
+
+        // because of the memory creation phase var is function scoped and var is hoisted and the value is initialized with undefined
+
+        // 25
+        // var a = 100;
+        // {
+        //     var a = 10;
+        //     let b = 20;
+        //     const c = 30;
+
+        //     console.log(a);
+        //     console.log(b);
+        //     console.log(c);
+        // }
+        // console.log(a)
+        // op:- 10,20,30,10
+        // because block a is modified value of global `a` as well
+        // here when var a =10 runs then 100 is replaced by 10 as it was initially in global scope
+        // so if one has same name variable outside the block the variable inside the blocks shadow the outside variable
+        // this is happening because of shadowing  and this happens only for var
+
+        // 26
+        // let name = "sumit"
+        // function getName() {
+        //     console.log(name)
+        // }
+        // getName()
+        // output:- sumit
+        // because we are accessing the let varialbe inside the function and invoking the function getName()
+
+        // 27
+        // console.log(`(x => x)('i love javascript')); here is x is returing the value of x
+        // console.log(`${(x => x)('i love javascript')} to build frontend`);
+        // output:- i love javascript to build frontend
+        // because we are using arrow function and x is returning the i love javascript
+
+        // 28
+        // function sumValues(x, y, z) {
+        //     return x + y + z;
+        // }
+        //console.log(sumValues([...1, 2, 3])) //1 is not iterable
+        //console.log(sumValues([...[1, 2, 3]])) //op is  1,2,3, undefined undefined
+        //console.log( sumValues(...[1, 2, 3])) //output is 6
+        //console.log(sumValues([1, 2, 3])) //op is  1,2,3, undefined undefined
+
+        // Options:
+        // a: sumValues([...1,2,3])
+        // b: sumValues([...[1,2,3]])
+        // c: sumValues(...[1,2,3])
+        // d: sumValues([1,2,3])
+
+
+        //29
+        // const name = 'cutratetraveller explore the world'
+        // console.log(!typeof name === 'object') //false
+        // console.log(!typeof name === 'string') //false
+        // console.log(!typeof name === false) //true
+        // output:- false false true
+        // because our javascript execute the code line by line as it is single threaded and evaluates the value from left to right
+        // when we are doing (! typeof name ) it is making the true value to false and checking the false value with the object
+        // (typeof name ) op is true and we are making the true value false at begining by (!typeof name and then evaluating the value with === 'object')
+
+
+
+        // 30
+        // const name = "Join Cutratetraveller"
+        // const age = 25
+        // console.log(isNaN(name)) //true
+        // console.log(isNaN(age)) //false
+        // output:- true false
+        // because it is checking whether the variable is storing the number of not
     </script>
 
 
