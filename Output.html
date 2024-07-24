@@ -343,6 +343,179 @@
         // console.log(isNaN(age)) //false
         // output:- true false
         // because it is checking whether the variable is storing the number of not
+
+
+        // ------------07/24/2024
+        // 31
+
+        // let person = { name: 'Sumit' }
+        // Object.seal(person)
+        // question how can you modifiy the object person
+        // person.push("Shambhu")
+        // person.name = "Gautam" //it can be modified by this way
+        // console.warn(person)
+        // with this method it prevents the addition and deleteion of new properties
+        // makes existing properties non configurable
+
+
+        // 32
+        // let data = [1, 2, 3, 4, 5] //remove the 1st and last element  
+        // data.shift() //removing the 1st elemtn
+        // data.pop() //removing the last elemnet
+        // data.push(1) //adding the elemnt at the last of the array
+        // data.unshift(98) //adding the element at the 1st in array container
+        // console.warn(data)
+
+        // 33
+        // convert the data into boolean false value
+        // let data = "true"
+        // console.warn(!data)
+        // console.warn(data)
+        // because whenever we keep the negation value infront of any variable conditon it will convert to boolean value if it is true convert to false and viceversa
+        // Question: Convert the data into boolean true
+        // let data = "true"
+        // console.warn(!!data)
+        // console.warn(data)
+        // single negation symbol makes the value boolean value false but !! double negation value it makes the vale boolean true
+
+
+        // 34
+        // let data = ["gautam", "sumit", "shambhu"]
+        // delete data[1]
+        // console.warn(data)
+        // console.log(data.length) // it will give the length 3
+        // OP:-  ['gautam', empty, 'shambhu']
+        // delete keyword is used to delete both the properties and propeties value of object in js
+        // it deletes the index value properties which has index of 1 here 1=sumit
+        // whenever we delete it create empty space 
+
+
+
+        // 35
+        // how to merge two array
+        // let arr1 = ["gautam", "sumit", 'shambhu']
+        // let arr2 = ["MCA", "Scinetis", 'CEO']
+        // let arr2 = [1, 2, 3, 4]
+        // let mergeData = [...arr1, arr2]
+        // console.log(mergeData)
+
+        // this can be done with the help of spreap operator
+
+        // 36
+        // let c = 3 ** 3
+        // console.warn(c)
+        // here it is used js exponentiation operator it reaises the first operand to the power of the 2nd operand
+        // another simple meaning 3 square 3
+
+
+
+
+        // 37
+        // let a = 2
+        // setTimeout(() => {
+        //     console.warn(a)
+        // }, 0);
+        // a = 100
+        // OP:- 100
+        // whenever we use setTimeout setTimeInterval in js engine the stack is created and it puts all the api function at last
+        // that will run after all the program loc is executed as it becomes asynchronous and when all the loc is executed
+        // at last the updated value is 100 and it prints 100 because at first the value of a was initialized to 2 and after that is was initialized to 100 
+
+        // 38
+        // let a = 2
+        // let A = 100
+        // console.warn(A)
+        // OP:-100
+        // it will print the op as 100 because after declaring and initializing the value to the variable it is called immediately `A`
+        // here both the "a" and "A" are different variable
+
+        // 39
+        // let A10 = "Gautam"
+        // let 10A ="Sumit"
+        // console.warn(A10)
+        // console.warn(10A)
+        // console.warn(A10) this will act normal without any error but  this will console.warn(10A) throw an error because the rule of declaring the variable in javascript 
+        // the variable declaration of the should not start with number 
+
+        // 40
+        // let a = "hello"
+        // let b = `hello`
+        // console.log(a === b)
+        // OP:- true
+        // because both the a and b are the same string value hello content the confusion is made by the template literals string can be stored 
+        // by doubleq quote "", single quote '' and template literals `` backticks
+
+        // 42
+        // let a = 1
+        // let b = 2
+        // console.log(--b === a)
+        // OP:- true
+        // because of perfix Decrement operator (`--b`) --b decrements the value of b by 1 before using its value in the comparison. So, b becomes 1 after this operation.
+
+        // 43
+        // let a = 1
+        // let b = 1
+        // let c = 2
+        // console.log(a === b === --c)
+        // OP:- false
+        // because when we compared the value of a and b it returned the boolean value "true" not 1 and after getting the value of b = true now comparing the value
+        // true === 1 that's y it is showing false because it is comparing the boolean value with 1
+
+        // 44
+        // console.log(3*3)//9
+        // console.log(3**3) //3*3*3 = 27 it saying value of square of 3  * 3
+        // console.log(3***3) //syntax error
+
+        // 45
+        // console.log(a)
+        // var a;
+        // console.log(a)
+        // OP:- undefined undefined
+        // because on which is above the variable declaration var a is hoisted the default value is provided undefined by the memory creation phase of execution context
+        // where as another console which is after declaration of var a is also undefined because we are accessing the value of the variable which is declared but not initialized with default value
+
+        // 46
+        // how to find the os name from js
+        // navigator.platform
+
+        // 47
+        // function bike() {
+        //     console.log(name)
+        //     console.log(price)
+        //     var name = "Dominor"
+        //     let price = 262000;
+        // }
+        // bike()
+        // OP:- Undefined, Reference Error cannot access price before initialization
+        // because var is hoisted and it value is also hoisted but let is hoisted but not initialized with default value the value is in TDZ
+
+        // 48
+        // for (var i = 0; i < 3; i++) {
+        //     setTimeout(() => {
+        //         console.log(i)
+        //     }, 1);
+        // }
+        // OP:- 3,3,3
+        // because at first loop has executed 3 time 3 and when it finishes it's execution at that time value of var i = 3 and afte that it prints 3
+        //The for loop completes before any of the setTimeout callbacks execute.
+        // Each callback captures and logs the final value of i (which is 3), rather than the value of i at the time setTimeout was called.
+        // This results in the console outputting 3 three times instead of 0, 1, 2
+
+        // 49
+        // for (let i = 0; i < 3; i++) {
+        //     setTimeout(() => {
+        //         console.log(i)
+        //     }, 1);
+        // }
+        // OP:- 0,1,2
+        // because let has block scope
+
+        // 50
+        // console.log(+true)
+        // console.log(typeof +true)
+        // OP:- 1 and number
+        // because When you apply + to a boolean value (true), JavaScript converts true to its corresponding numeric representation, which is 1.
+        // Therefore, +true evaluates to 1.
     </script>
 
 
