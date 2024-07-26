@@ -359,7 +359,7 @@
 
 
         // 32
-        // let data = [1, 2, 3, 4, 5] //remove the 1st and last element  
+        // let data = [1, 2, 3, 4, 5] //remove the 1st and last element
         // data.shift() //removing the 1st elemtn
         // data.pop() //removing the last elemnet
         // data.push(1) //adding the elemnt at the last of the array
@@ -387,7 +387,7 @@
         // OP:-  ['gautam', empty, 'shambhu']
         // delete keyword is used to delete both the properties and propeties value of object in js
         // it deletes the index value properties which has index of 1 here 1=sumit
-        // whenever we delete it create empty space 
+        // whenever we delete it create empty space
 
 
 
@@ -419,7 +419,7 @@
         // OP:- 100
         // whenever we use setTimeout setTimeInterval in js engine the stack is created and it puts all the api function at last
         // that will run after all the program loc is executed as it becomes asynchronous and when all the loc is executed
-        // at last the updated value is 100 and it prints 100 because at first the value of a was initialized to 2 and after that is was initialized to 100 
+        // at last the updated value is 100 and it prints 100 because at first the value of a was initialized to 2 and after that is was initialized to 100
 
         // 38
         // let a = 2
@@ -434,15 +434,15 @@
         // let 10A ="Sumit"
         // console.warn(A10)
         // console.warn(10A)
-        // console.warn(A10) this will act normal without any error but  this will console.warn(10A) throw an error because the rule of declaring the variable in javascript 
-        // the variable declaration of the should not start with number 
+        // console.warn(A10) this will act normal without any error but  this will console.warn(10A) throw an error because the rule of declaring the variable in javascript
+        // the variable declaration of the should not start with number
 
         // 40
         // let a = "hello"
         // let b = `hello`
         // console.log(a === b)
         // OP:- true
-        // because both the a and b are the same string value hello content the confusion is made by the template literals string can be stored 
+        // because both the a and b are the same string value hello content the confusion is made by the template literals string can be stored
         // by doubleq quote "", single quote '' and template literals `` backticks
 
         // 42
@@ -516,6 +516,139 @@
         // OP:- 1 and number
         // because When you apply + to a boolean value (true), JavaScript converts true to its corresponding numeric representation, which is 1.
         // Therefore, +true evaluates to 1.
+
+
+        // ---------------------- 07/26/2024
+        // 51
+        // console.log(!"gautam")
+        // console.log(typeof ('gautam'))
+        // OP:- false and string
+        // because we are converting the string to the opposite that y it is returning false and 2nd console we are checking the type of data and it is string
+
+
+        // 52
+        // let data = 'size'
+        // const bird = {
+        //     size: "small"
+        // }
+        // console.log(bird[data]) //accessing the property of the bird using the value of data
+        // console.log(bird["size"]) //it is directly accessing the property `size` of the bird object
+        // console.log(bird.size) //it is also directly accessing the propery  of the bird object
+        // console.log(bird.data) //it is trying to access the property of the data which is not available in brid object
+        // OP:- small small small undefined
+        // here (.) notation and bracket [] notation are straight forward way to access the object properties directly if you know the property name in advance
+        // using the variable and accessing them inside the bracket (bird[data] allows for dynamic property access based on the value of the variable
+
+
+        // 53
+        // let c = { name: "gatuam" }
+        // let d;
+        // d = c;
+        // c.name = "sumit"
+        // console.log(d.name)
+        // OP:- sumit
+        // it will print sumit because due to shared object reference, mutability and object references c and d points to the same object
+        // changing c.name to sumit also changes d.name because they share the same object reference
+
+        // 54
+        // var x;
+        // var x = 10
+        // console.log(x)
+        // OP:- 10
+        // because it holds the value of 10 here first x is declared in 1st step and in 2nd step x has initialized a value of 10
+
+        // 55
+        // var x
+        // let x = 10
+        // console.log(x)
+        //OP:- syntaxerror x has been already declared
+        // because here let and const cannot be redeclared and we are declaring the same variable name with let and assigning the value
+
+
+        // 56
+        // let a = 3
+        // let b = new Number(3)
+        // console.log(a == b) //true
+        // console.log(a === b) //false
+        // OP:- true and false
+        // because we are comparing the number with object in 1st case type coercien takes place and it convert to the same value and check the vlalue
+        // whereas in 2nd console log type coercien does not take place means it is comparing number with object which is obviously false
+
+
+        // 57
+        // let name;
+        // name = {}
+        // console.log(name)
+        // OP:- empty object {}
+        // because we are not assingnign any properties and value to the object name
+
+        // 58
+        // function bike() {
+        //     console.log("Dominor")
+        // }
+        // bike.name = "BMW"
+        // bike()
+        // OP:- Dominor
+        // bike.name = "BMW";: Assigns a property "name" to the function object bike. In JavaScript, functions are objects, so you can add properties to them.
+        // This is because calling bike() executes the function body, which logs "Dominor" to the console.
+
+
+        // 59
+        // function sum(a, b) {
+        //     return a + b
+        // }
+        // console.log(sum(5, "10"))
+        // OP:- 510
+        // because it is concatenating the number with string
+
+        // 60
+        // let number = 10
+        // console.log(number++) //10
+        // console.log(++number)//12
+        // console.log(number) //12
+        // because of postfix and prefix operator
+        // Postfix (number++): Returns the current value of number, then increments number by 1.
+        // Prefix (++number): Increments number by 1, then returns the incremented value.
+
+        // 61
+        // let f = "8";
+        // let a = 1;
+        // console.log((+f) + a + 1)
+        // OP:-10
+        // because the expression (+f) is a shorthand way to convert the value of f to a number.Therefore (+f) evaluates to 8 
+
+        // 62
+        // let a = 10
+        // if(true){
+        //     let a = 20
+        //     console.log(a, "inside")
+        // }
+        // console.log(b, "outside")
+        // OP: 20 Inside and 10 Outside
+        // because variable a is declared inside the block scope and does not affect the outside variable 
+
+        // 63
+        // var a = "gautam"
+        // var a = "sumit"
+        // console.log(a)
+        // OP:- sumit
+        // here the variable is decalared with var keyword in which we can redeclare and assign value it overrides the previous variable value
+
+        // 64
+        // const arr1 = [1, 2, 3, 4];
+        // const arr2 = [6, 7, 5];
+        // const result = [...arr1, ...arr2];
+        // console.log(result);
+        // OP:- result [1,2,3,4,6,7,5]
+        // here we are concatenating the two array into a single array with the spread operator [...]
+
+        // 65
+        // const person1 = { name: "sumit", age: 17, }
+        // const person2 = { city: "Parasi", ...person1 }
+        // console.log(person2)
+        // OP:- {city: 'Parasi', name: 'sumit', age: 17}
+        // because we are copying the properties names of person1 object inside the person2 object with the help of [...] spread operator
+        // gggggg
     </script>
 
 
