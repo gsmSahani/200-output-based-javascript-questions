@@ -615,7 +615,7 @@
         // let a = 1;
         // console.log((+f) + a + 1)
         // OP:-10
-        // because the expression (+f) is a shorthand way to convert the value of f to a number.Therefore (+f) evaluates to 8 
+        // because the expression (+f) is a shorthand way to convert the value of f to a number.Therefore (+f) evaluates to 8
 
         // 62
         // let a = 10
@@ -625,7 +625,7 @@
         // }
         // console.log(b, "outside")
         // OP: 20 Inside and 10 Outside
-        // because variable a is declared inside the block scope and does not affect the outside variable 
+        // because variable a is declared inside the block scope and does not affect the outside variable
 
         // 63
         // var a = "gautam"
@@ -648,8 +648,315 @@
         // console.log(person2)
         // OP:- {city: 'Parasi', name: 'sumit', age: 17}
         // because we are copying the properties names of person1 object inside the person2 object with the help of [...] spread operator
-        // gggggg
+
+        // -----------------------07/27/2024--------------------
+        // 66
+        // function sum(a, b) {
+        //     return a + b
+        // }
+        // console.log(sum(10, "20"))
+        // OP:- 1020
+        // because a number is concatenating the b string value
+
+        // 67
+        // function getAge(...args) {
+        // console.log(Array.isArray(args)) //true
+        // console.log(args) // [25]
+        // console.log(typeof args) //object
+        // }
+        // getAge(25)
+        // OP:- [25] object
+        // because when you use `...args` syntax in function args becomes an array containing all the arguments passed to the functoin
+        // arg is an array so typeof args became object and this is because array is an type of object
+        // to confirm use `Array.isArray()` method
+
+        // 68
+        // function getAge() {
+        //     'use strict'
+        //     age = 25
+        //     console.log(age)
+        // }
+        // getAge()
+        // OP:Reference error : age is not defined at getAge()
+        // because when we use strict mode  in javascript it enforces stricter parsing and error handling on your code
+        // major imp is it prevents the accidental creation of global variable
+        // here age is initialized but not declared so we have to declare the variable first and assign the value
+
+        // 69
+        // const sum = eval("10*5+5")
+        // console.log(sum)
+        // OP:-55
+        // because it evaluates the expression from the string and calculate the number
+
+        // 70
+        // const obj = { 1: "a", 2: "b", 3: "c" }
+        // console.log(obj.hasOwnProperty("1"))
+        // console.log(obj.hasOwnProperty(1))
+        // OP:-true true
+        // in both the case the op will be true because `hasOwnProperty` check for the existence of the property
+        // when we pass the number value as a key to check the js internally convert the number into string and check
+        // so it "1" true
+
+        // 71
+        // for (let i = 1; i < 10; i++) {
+        //     if (i === 3) continue
+        //     if (i === 5) break
+        //     console.log(i)
+        // }
+        // OP:1,2,4
+        // because here we are using continue statement which says to skip the current iteration and continue with other
+        // and break statement will break the iteration and terminate the program
+
+        // 72
+        // const foo = () => console.log('first')
+        // const bar = () => setTimeout(() => console.log('second'))
+        // const baz = () => console.log('Third')
+        // bar() // wait for foo and baz
+        // foo() // executes first
+        // baz() //executes after the foo
+        // OP:- first second and third
+        // because the both foo and baz will run automatically but here in the case of bar() function it has settimeout which is webapi
+        // it will hold in the task queue from the web api and it goes into the call stack when foo and baz is cleared from the call stack that's y it is printing first third and second
+
+
+        // 73
+        // const person = { name: "gautam" }
+        // function sayHi(age) {
+        //     return `${this.name} is ${age}`
+        // }
+        // console.log(sayHi.call(person, 21))
+        // console.log(sayHi.bind(person, 25))
+        // console.log(sayHi.call(person, 21)) outputs "gautam is 21".
+        // console.log(sayHi.bind(person, 25)) outputs the function definition.
+        // because call method is immediately invoked the function with specifinc "this" context and arguments
+        // but bind method reutrn a new funcitoin with a specific `this` context and preset arguments and the new function can be called later
+
+        // 74
+        // function sayHi() {
+        //     return (() => 0)()
+        // }
+        // console.log(typeof sayHi())
+        // OP:number
+        // because sayHi function is returning another arrow funciton which has number 0
+
+        // 75
+        // console.log(typeof typeof 1)
+        // OP:- string
+        // NOTE:the typeof operator returns a string that describe the type of the value
+
+        // typeof 1 results in "number".
+        // typeof "number" (where "number" is the result of typeof 1) results in "string".
+
+        // 76
+        // const numbers = [2, 4, 6, 8]
+        // numbers[10] = 12;
+        // console.log(numbers)
+        // OP:-[2, 4, 6, 8, empty × 6, 12]
+        // here numbers[10] means to keep 12 at the index number of 10 which is followed by 0=2,1=4,2=6,3=8 4=[],5=[],6=[],7=[],8=[],9=[],10=[12]
+
+        // 77
+        // const numbers = [2, 4, 6, 8]
+        // numbers[10] = numbers;
+        // console.log(numbers)
+        // OP:- [2, 4, 6, 8, empty × 6, Array(11)]
+        // it will go to infinite number of inserting the numbers array to the index number of 10
+
+        // 78
+        // Everything in javascript is either a..
+        // A:primitive or object  //true
+        // B:function or object
+        // C:only object
+        // D:number or object
+
+
+        // 79
+        // console.log(!!null) //false
+        // console.log(!!"") //false
+        // console.log(!!1) //true
+        // NOTE : ! single exclamantion marks This operator is used to negate a value, converting it to its boolean opposite.
+        // !! (Double Exclamation Mark):Applying ! twice first negates the value (turning a truthy value to false and a falsy value to true),
+        // !! is used to explicitly convert a value to its boolean equivalent.
+        // Falsy values (like null, "", 0, NaN, and false) become false
+        // and truthy values (like 1, "hello", {}, []) become true.
+
+        // 80
+        // console.log(setInterval(() => console.log("hi"), 1000))
+        // console.log(setInterval(() => console.log("hi"), 1000))
+        // console.log(setInterval(() => console.log("hi"), 1000))
+        // 1 2 3 (hi hi hi) to the inifinite
+        // because Each call to setInterval returns a unique interval ID here in this code  Intervalid is 1,2,3, which you can use to stop the interval using clearInterval.
+
+        // 81
+        // console.log([..."gautam"])
+        // OP:- ['g', 'a', 'u', 't', 'a', 'm']
+        // here we are using spread operator which is breaking down the string element into the new  array element
+
+        // 82
+        // const firstPromise = new Promise((resolve, reject) => {
+        //     setTimeout(resolve, 500, "one")
+        // })
+        // const secondPromise = new Promise((resolve, reject) => {
+        //     setTimeout(resolve, 100, 'two')
+        // })
+        // Promise.race([firstPromise, secondPromise]).then(resolve => console.log(resolve))
+        // Since secondPromise resolves first because it has the timer of only 100ms and firstPromise has timer of 500ms, the output of console.log(resolve) will be "two",
+        // because secondPromise resolves with "two" after 100 milliseconds.
+
+        // 83
+        // let person = { name: "sumit" }
+        // const members = [person]
+        // person = null
+        // console.log(members)
+        // OP:-[ { name: 'sumit' } ]
+        // The array members still holds the original object with name: "sumit", despite the person variable being reassigned to null.
+        // when we are assinging the the person null the person becomes null but before assigning it null we have kept the person object to the members array
+        // and we are doing console to the members and member is still holding the original array
+
+        // 84
+        // const person = {
+        //     name: "Shambhu",
+        //     age: 43,
+        // }
+        // for (const item in person) {
+        //     console.log(item)
+        // }
+        // OP: name and age
+        // because the work of for in loop is to iterate over the properties of the object only
+
+        // 85
+        // let data = 10 + 20 + "30"
+        // console.log(data)
+        // OP:- 3030
+        // because we are adding the 10+20 and becomes 30 and the last value is string so we cannot add string with number and there + sign used
+        // which works as string concatenation
+
+
+        // 86
+        // console.log(typeof 10 + 20 + "30")
+        // console.log(typeof 3 + 4 + +'5')
+        // OP:- number 45
+        // OP:- number 2030
+        //  because as we know the js evaluates from left to right first it check the typeof 10 it comes number and after add remaining part 2030
+
+
+        // 87
+        // console.log([] === []);
+        // OP:-false
+        // because the both the array is stored in different memory location
+
+        // 88
+        // let data = [1, 2, 3].map(num => {
+        //     if (typeof num === 'number') return
+        //     return num * 2
+        // })
+        // console.log(data)
+
+        // OP:-[undefined, undefined, undefined]
+        // The map method replaces each element in the new array with undefined,
+        //  because the callback function only returns a value when the condition is not met,
+        //  but in this case, the condition is always met (i.e., all elements are numbers).
+
+        // 89
+        // function getInfo(member) {
+        //     member.name = "Sumit"
+
+        // }
+        // const person = { name: "Gautam" }
+        // getInfo(person)
+        // console.log(person)
+        // OP:-{ name: "Sumit" }
+        // this is happening because in javascript objects are passed by reference.
+        // Therefore, any changes made to an object inside a function will be reflected outside the function as well. In this case,
+        // the name property of person is changed from "Gautam" to "Sumit".
+
+        // 90
+        // function Car() {
+        //     this.make = 'Thar';
+        //     return { make: "Rubicon" }
+        // }
+        // const myCar = new Car()
+        // console.log(myCar.make)
+        // OP:- Rubicon
+        // because we are returning the property value and it is overriding the previous object value with Rubicon
+
+        // 91
+
+        // console.log(5 < 6 < 7)
+        // console.log(7 > 6 > 5);  //false
+        // OP:- True
+        // as we know that js evaluates the expression from left to right the expression here is compared first 5<6 true and it implicitly convert
+        // the true into number 1 and after that it compares 1<7 true and that's y the op is true
+
+        // 92
+        // console.log(0 == false)
+        // console.log(1 == true)
+        // true true
+        // The == operator converts operands to a common type before making the comparison. In both the cases,
+        // the boolean value will be converted to a number, i.e., false is converted to 0 and true is converted to 1.
+        //  So, the expression 0 == false is equivalent to 0 == 0 and 1 == true is equivalent to 1 == 1.
+
+        // 93
+        // console.log([10, 20, 30] + [18, 12, 78])
+        // OP:-10,20,3018,12,78
+        // the + operator is used for both in addition and concatenation ,it is because when we concatenate two array then it converted into string and concatenate
+        // "10,20,30""18,12,78"
+
+
+        // 94
+        // console.log({} == {})
+        // console.log({} === {})
+        // OP:- false
+        // because it is comparing both the empty object but he objet are loacted in different memory location
+
+        // 95
+        // let x = 5;
+        // let y = x++;
+        // console.log(y);
+        // console.log(x)
+        // OP:- 5,6
+        // because it's all game of post increment
+        // console.log(y); will print 5, because y was assigned the value of x before x was incremented.
+        // console.log(x); will print 6, because x was incremented after its value was assigned to y.
+
+        // 96
+        // let x = 5;
+        // let y = ++x;
+        // console.log(x)
+        // console.log(y);
+        // OP:- 6,6
+        //  The pre-increment operator increments and returns the value after incrementing.
+
+
+        // 97
+        // console.log('apple'.split(''))
+        // OP:['a', 'p', 'p', 'l', 'e']
+        // because split method is used to split a string into array of substrings based on specifid operators
+
+        // 98
+        // const arr = [10, 20, 50, 60, 80, 100]
+        // console.log(arr.indexOf(80))
+        // OP:- 4
+        // this is because indexOf method returns the index number of the array element
+
+        // 99
+        // const array = [10, 20, 50, 60, 80, 100]
+        // const result = array.map(element => element + 2).filter(element => element > 50)
+        // console.log(result)
+        //OP:- [52, 62, 82, 102]
+        // here first iterating the each array element and adding 2 to all the arrr element 10+ 2=12 like this after getting all the elemnt by adding
+        // now it is using filter method to filter the value of array element which is greater than 50
+
+        // 100
+        // function checkValue(value) {
+        //     var result = Array.isArray(value);
+        //     console.log(result);
+        // }
+        // checkValue([1, 2, 3]);
+        // OP:-true
+        // because it Array.isArray check the if the value is array or not
     </script>
+
+
 
 
 
