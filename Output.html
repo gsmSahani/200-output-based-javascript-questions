@@ -954,7 +954,344 @@
         // checkValue([1, 2, 3]);
         // OP:-true
         // because it Array.isArray check the if the value is array or not
+
+
+
+        // 101
+        // const obj = {
+        //     a: "foo",
+        //     b: function () {
+        //         console.log(this.a)
+        //     }
+        // }
+        // const c = obj.b
+        // obj.b()
+        // c()
+        // foo
+        // undefined
+        // because when obj.b is called `this` referes to `obj` so this.a is "foo"
+        // and when c() invoked this refers to the global object and the global object has assigned the value of undefined
+
+
+        // 102
+        // const arr = [10, 20, 30, 40, 50, 60, 70]
+        // for (var i = 0; i < arr.length; i++) {
+        //     setTimeout(() => {
+        //         console.log(i)
+        //     }, 1000);
+        // }
+        // 7 five times
+        // it mainly happening due to the closure and setTimeout
+        // The var keyword in JavaScript has function scope, not block scope.
+        // This means that the variable i is not re-declared for each iteration of the loop;
+        //  there is a single i variable that all the closures created by setTimeout share.
+        // By the time the setTimeout callbacks are executed (after 1 second), the for loop has completed, and i has been incremented to 7
+        // to get rid of this we can use let or iife
+
+
+        // 103
+        // let a = {}
+        // let b = { name: "Gautam" }
+        // let c = { name: "sumit" }
+
+        // a[b] = 123
+        // a[c] = 456
+        // console.log(a[b])
+        // 456
+        // The reason for this behavior is that when you use objects as keys in a JavaScript object,
+        //  they are implicitly converted to strings, and all objects convert to the same string [object Object].
+        //  This results in the key collision and the value being overwritten.
+        // Since both b and c convert to the same string key [object Object],
+        //  the second assignment (a[c] = 456) overwrites the first assignment (a[b] = 123).
+
+        // 104
+        // let obj1 = { key: "value" };
+        // let obj2 = obj1;
+        // let obj3 = obj2;
+        // obj1.key = "new value";
+        // obj2 = { key: "another value" };
+        // console.log(obj1.key, obj2.key, obj3.key);
+        // new value, another value,new value
+        // in javascript object are assigned and passsed by     reference
+        // obj1, obj2, and obj3 all initially reference the same object { key: "value" }.
+        // Changing obj1.key to "new value" updates the key property of the single object referenced by all three variables.
+        // Reassigning obj2 to { key: "another value" } only changes what obj2 points to,
+        // creating a new object and leaving obj1 and obj3 still referencing the original object.
+
+        // 105
+        // const x = { add: 1 }
+        // const y = { add: 2 }
+        // function addTwo(obj) {
+        //     return obj.add + 1
+        // }
+        // console.log(addTwo(x))
+        // console.log(addTwo(y))
+        // 2,3
+        // because we are adding the 1 to all the add properties of the x and y object and returning in addTwo function by passing parameter obj
+
+        // 106
+        // let obj = {
+        //     a: 10,
+        //     b: 20,
+        // }
+        // let x = obj
+        // obj.a = 50
+        // console.log(obj)
+        // console.log(x)
+        // {a: 50, b: 20},{a: 50, b: 20}
+        // because both obj and x point to the same object,obj and x are two variables referencing the same object.
+        // console.log(obj) outputs { a: 50, b: 20 } because the a property has been updated to 50.
+        // console.log(x) also outputs { a: 50, b: 20 } because x references the same object and thus reflects the same changes.
+
+
+        // 107
+        // let a = [2, 4, 6, 8, 10]
+        // let b = [2, 4, 6, 8, 10]
+        // let c = b
+        // console.log(b)
+        // console.log(a == b) //false
+        // console.log(a === b) //false
+        // console.log(c == b) //true
+        // console.log(c === a) //false
+        // console.log(c == b) //true
+        // a== b is false because both the array are located into different memory location
+        // a === b again false because the memory location is different for both the variable a and b
+        // c == b yes it is true because it is getting the reference value of the b array which is stored in the same location
+        // c === b is false because again it's memory allocation
+
+        // 108
+        // let a = 30;
+        // let b = a++
+        // console.log(a)
+        // console.log(b)
+        // 31 30
+        // because of post increment
+
+
+        // 109
+        // let num = 0
+        // function hello() {
+        //     var num = 1
+        //     return num;
+        // }
+        // console.log(hello()) //1
+        // console.log(num) //0
+        // because the hello() funciton is invoked first andthen num is called in console
+
+        // 110
+        // let obj = { name: 'gautam', age: 24 }
+        // let obj2 = { ...name, age: 50 }
+        // console.log(obj.age) //24
+        // console.log(obj2.age) //50
+        // because we are using spread operator for copying the 1st object into the 2nd object
+
+        // 111
+        // const add = (a = 10, b = 20) => a + b
+        // console.log(add()) //30
+        // console.log(add(50)) //70
+        // console.log(add(undefined, 50)) //60
+        // because we are overwriting the default value passed in the parameter which if we do not pass any value then
+        // it will take the defalult value but if we give value then it will override
+
+
+        // 112
+        // console.log(typeof NaN) //number
+        // console.log(typeof undefined) //undefined
+        // console.log(typeof null) //object
+        // console.log(null === undefined) //false
+        // console.log(null == undefined) // true
+        // console.log(null === false) //false
+        // console.log(Number === NaN) //false
+
+        // because
+        // typeof NaN returns "number" because NaN is considered a numeric type.
+        // typeof undefined returns "undefined" because undefined is its own type.
+        // typeof null returns "object" due to a historical bug in JavaScript.
+        // null === undefined is false because they are of different types.
+        // null == undefined is true due to loose equality treating them as equivalent type coercion is taking place.
+        // null === false is false because null and false are of different types.
+        // Number === NaN is false because Number is a constructor and NaN is a value.
+
+        // 113
+        // console.log(typeof 100) //number
+        // console.log(typeof "gautam") //string
+        // console.log(typeof [2, 4, 6, 8]) //object
+        // console.log(typeof {}) //object
+        // console.log(typeof function () { }) //function
+        // console.log(typeof NaN) //number
+        // console.log(typeof true) //boolean
+        // console.log(typeof undefined) //undefined
+        // console.log(typeof Date) // function
+        // console.log(typeof Date()) // string
+        // console.log(typeof Date.now()) //number
+
+        // 114
+        // let a = 10
+        // {
+        //     let a = 20
+        //     console.log(a)
+        // }
+        // console.log(a)
+        // 20 and 10
+        // because the let is block scoped hence we are calling the block a inside the block andit is executed 1st and
+        // then after that outer block scope
+
+        // 115
+        // let a = 20
+        // function display() {
+        //     console.log(a)
+        //     let a = 40
+        // }
+        // display()
+        // Hoisting with let: let declarations are hoisted to the top of their block scope but are not initialized, causing a temporal dead zone.
+        // ReferenceError: Accessing a let variable before its declaration in its block results in a ReferenceError.
+        // The let keyword creates a block-scoped variable. This means the a inside the display function is local to that function and shadows the global a.
+        // hoisting and function scope and shadowing the global a
+
+        // 116
+        // let a = 10;
+        // function abc() {
+        //     if (true) {
+        //         let b = 20;
+        //         console.log(b); //20
+        //     }
+        //     console.log(a); //10
+        // }
+        // abc();
+        // Inside the if block, let b = 20; is declared and is accessible only within the block.console.log(b); prints 20.
+        // Outside the if block, console.log(a); prints the value of the global a, which is 10
+
+        // 117
+        // const person = {
+        //     name: "gautam",
+        //     age: 25
+        // }
+        // Object.freeze(person)
+        // person.age = 50
+        // console.log(person.age)
+        // OP:- 25
+        // Object.freeze(person): This makes the person object immutable.
+        // Modification Attempt: Trying to change person.age after freezing it has no effect.
+        // object.freeze prevents modification to the person object
+
+        // 118
+        // function hi() {
+        //     console.log(name)
+        //     console.log(age)
+        //     var name = "gautam"
+        //     let age = 25
+        // }
+        // hi()
+        // OP:- undefined and reference error
+        // Explanation:
+        // The variable 'name' is hoisted with the default value 'undefined' because 'var' is function-scoped.
+        // The variable 'age' is hoisted but cannot be accessed before initialization because 'let' has block scope and a Temporal Dead Zone (TDZ).
+
+        // 119
+        // for (var i = 0; i < 3; i++) {
+        //     setTimeout(() => {
+        //         console.log(i)
+        //     }, 1);
+        // }
+        // for (let i = 0; i < 3; i++) {
+        //     setTimeout(() => {
+        //         console.log(i)
+        //     }, 1);
+        // }
+        // Output: 3 3 3 and 0 1 2
+
+        // Explanation:
+        // - `var` is function-scoped or globally scoped, not block-scoped.
+        // - The variable `i` is hoisted to the top of the function or global scope.
+        // - The `for` loop completes its iterations, and `setTimeout` schedules functions to run after the loop.
+        // - All the `setTimeout` functions reference the same `i`.
+        // - By the time the functions run, the loop has finished, and `i` is `3`.
+        // - Therefore, each function logs `3`.
+
+        // - `let` is block-scoped, creating a new `i` for each iteration of the loop.
+        // - Each iteration of the `for` loop has its own scope for `i`.
+        // - The `setTimeout` functions capture the `i` from their respective iterations.
+        // - When the functions execute, they log the values `0`, `1`, and `2` from their own iteration scopes.
+
+        // 120
+        // const shape = {
+        //     radius: 10,
+        //     diameter() {
+        //         return this.radius * 2
+        //     },
+        //     perimeter: () => 2 * Math.PI * this.radius
+        // };
+        // shape.diameter()
+        // shape.perimeter()
+        // Output: 20 NaN
+
+        // Explanation:
+        // `diameter` is a regular function, so `this` refers to the `shape` object itself.
+        // The calculation is `this.radius * 2`, which is `10 * 2 = 20`.
+
+        // `perimeter` is an arrow function, so `this` does not refer to the `shape` object.
+        // Instead, it inherits `this` from the surrounding context, which is the global context.
+        // In the global context, `this.radius` is `undefined`.
+        // The calculation becomes `2 * Math.PI * undefined`, resulting in `NaN`.
+
+
+        // 121
+        // console.log(+true)
+        // console.log(!"Gautam")
+        // Output: 1 and false
+
+        // Explanation:
+
+        //  `+true`:
+        //    - The unary plus operator attempts to convert its operand to a number.
+        //    - The boolean value `true` is converted to the number `1`.
+        //    - Therefore, `+true` results in `1`.
+
+        // `!"Gautam"`:
+        //    - The string `"Gautam"` is a non-empty string, which is considered `truthy` in JavaScript.
+        //    - The logical NOT (`!`) operator negates the truthy value.
+        //    - Therefore, `!"Gautam"` results in `false`.
+
+        // 122
+        // let a = { greeting: "Hi" }
+        // let b;
+        // b = a
+        // a.greeting = "Hello everyone"
+        // console.log(b.greeting)
+        // Output: Hello everyone
+
+        // Explanation:
+
+        // 1. Objects in JavaScript are assigned and passed by reference.
+        //    This means that the variable `a` contains a reference to an object in memory.
+
+        // 2. When `b = a;` is executed, `b` is assigned the same reference that `a` holds.
+        //    Both `a` and `b` now refer to the same object in memory.
+
+        // 3. When `a.greeting = "Hello everyone";` is executed, the `greeting` property of the object
+        //    is updated. Since `a` and `b` refer to the same object, this change is visible through both variables.
+
+        // 4. Therefore, `console.log(b.greeting);` outputs "Hello everyone", reflecting the updated value
+        //    of the `greeting` property in the shared object.
+
+        // 123
+        // let a = 10
+        // let b = new Number(10)
+        // let c = 10
+        // console.log(a == b)
+        // console.log(a === b)
+        // console.log(b === a)
+        // OP:- true false false
+        // a == b: true(due to type coercion where b is converted to its primitive value for comparison).
+        // a === b: false(because a is a primitive and b is an object, thus they are different types).
+        // b === c: false(since b is an object and c is a primitive number, they are different types).
+
+
+        // 124
+        
     </script>
+
+
 
 
 
