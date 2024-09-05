@@ -1288,7 +1288,96 @@
 
 
         // 124
-        
+        // let greeting
+        // greetign = {}
+        // console.log(greetign)
+        // OP:- {} object
+        // because here we are creating the variable greeting but not initializing the value
+        // and again we are creatign the variable with let var or const so it became global variable with spelling mistake
+        // and we are doing console of the greetign instead of greeting so it is not throwing error here
+
+        // 125
+        // function bark() {
+        //     console.log("Woof!")
+        // }
+        // bark.animals = "dog";
+        // there is no problem of in this code because in javascript apart from primitive data type everyting is object
+        // so function is object as behind the scene so you can attach the properties to them just like any other object
+
+        // 126
+        // function Person(firstname, lastname) {
+        //     this.firstname = firstname;
+        //     this.lastname = lastname;
+        // }
+        // const member = new Person("Gautam", "Pradeep");
+        // Person.getFullName = function () {
+        //     return `${this.firstname} ${this.lastname}`
+        // }
+        // console.log(member.getFullName())
+        // OP:- typeError
+        // in javascript you cannot add properties to a constructor like you can with object,if you want to add features
+        // to all objects at once you should use prototype instead
+
+        // 127
+        // function Person(firstname, lastname) {
+        //     this.firstname = firstname;
+        //     this.lastname = lastname;
+        // }
+        // const harry = new Person("Harry", "Potter")
+        // const lucifer = Person("Tom", "Maezkin")
+        // console.log(harry)
+        // console.log(lucifer)
+        // OP:- Person {firstname: 'Harry', lastname: 'Potter'} and undefined
+        //When using the `new` keyword with the `Person` function, a new empty object is created,
+        // and `this` refers to that object. The properties (`firstname` and `lastname`)
+        // are added to the new object, and it is returned.
+        // Without the `new` keyword, `this` refers to the global object (e.g., `window` in browsers),
+        //  so `firstname` and `lastname` are assigned to the global object, not a new instance.
+        //   Since the function doesn't return anything, `lucifer` is `undefined`.
+
+
+        // 128
+        // function sum(a,b){
+        //     return a + b
+        // }
+        // sum(1,"2")
+        // OP:- "12"
+        // because of type coercion first it converts the 1 to string and concate the 1 and 2 together
+
+
+        // 129
+        // let number = 0
+        // console.log(number++) //0
+        // console.log(++number) //2
+        // console.log(number) //2
+
+        // number++ (postfix) prints the value before incrementing.
+        // ++number (prefix) increments the value first and then prints.
+        // number++ (Postfix Increment):
+
+        // The current value of number (which is 0) is logged to the console first.
+        // After logging, number is incremented to 1.
+        // So, console.log(number++) prints 0.
+        // ++number (Prefix Increment):
+
+        // The value of number is incremented before logging.
+        // number was 1 after the previous step, so it becomes 2 before being logged.
+        // console.log(++number) prints 2.
+        // console.log(number):
+
+        // After the previous steps, number is now 2.
+        // So, console.log(number) prints 2.
+
+        // 130
+        // function getAge(...args) {
+        //     console.log(typeof args);
+        // }
+
+        // getAge(21);
+        // OP:- object
+        // The spread operator ( ...args. ) returns an array with arguments. An array is an object, so it typeof argsreturns"object"
+
+
     </script>
 
 
